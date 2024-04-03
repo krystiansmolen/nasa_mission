@@ -3,6 +3,9 @@ defmodule NasaMission do
   @moduledoc false
 
   def calculate_fuel_weight(mass, coordinates) do
-    BaseWeight.calculate(mass, coordinates)
+    base_weight = BaseWeight.calculate(mass, coordinates)
+    additional_fuel_weight = AdditionalWeight.calculate(base_weight)
+
+    base_weight + additional_fuel_weight
   end
 end
